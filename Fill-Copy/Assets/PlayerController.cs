@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     Vector3 Startposition;
     bool IsWalkable;
     Vector3 direction;
+    public float RotationSpeed;
     public float speed;
     public Rigidbody rb;
 
@@ -14,6 +15,12 @@ public class PlayerController : MonoBehaviour
     {
     }
     void Update()
+    {
+        TakeInput();
+
+    }
+
+    private void TakeInput()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -30,21 +37,26 @@ public class PlayerController : MonoBehaviour
             direction = Vector3.zero;
             IsWalkable = false;
         }
-
     }
+
     private void FixedUpdate()
     {
         Move();
 
-        //Rotate();
+        Rotate();
     }
 
     private void Rotate()
     {
         if (IsWalkable)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(transform.position + direction), Time.deltaTime);
-            transform.LookAt(transform.position + direction, Vector3.up);
+            var toRotation = Quaternion.LookRotation(transform.position + direction * speed);//slow version
+            transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, RotationSpeed * Time.deltaTime);
+
+
+            //transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, RotationSpeed * Time.deltaTime);
+            //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(transform.position + direction), Time.deltaTime);
+            //transform.LookAt(transform.position + direction, Vector3.up);
         }
     }
 
@@ -55,7 +67,8 @@ public class PlayerController : MonoBehaviour
             if (direction.magnitude > .5f)
             {
                 print("play" + direction.normalized);
-                rb.velocity = (direction.normalized) * speed;
+                //rb.velocity = (direction.normalized) * speed;
+                rb.MovePosition(transform.position + direction.normalized * speed * Time.fixedDeltaTime);
             }
 
         }
