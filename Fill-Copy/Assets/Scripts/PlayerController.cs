@@ -50,8 +50,11 @@ public class PlayerController : MonoBehaviour
     {
         if (IsWalkable)
         {
-            var toRotation = Quaternion.LookRotation(transform.position + direction * speed);//slow version
-            transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, RotationSpeed * Time.deltaTime);
+            if (direction.magnitude > .5f)
+            {
+                var toRotation = Quaternion.LookRotation(transform.position + direction * speed);//slow version
+                transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, RotationSpeed * Time.deltaTime);
+            }
 
 
             //transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, RotationSpeed * Time.deltaTime);
@@ -66,11 +69,21 @@ public class PlayerController : MonoBehaviour
         {
             if (direction.magnitude > .5f)
             {
-                print("play" + direction.normalized);
+
                 //rb.velocity = (direction.normalized) * speed;
                 rb.MovePosition(transform.position + direction.normalized * speed * Time.fixedDeltaTime);
             }
 
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Finish")
+        {
+
+            //to do Change Color
+            
         }
     }
 }
