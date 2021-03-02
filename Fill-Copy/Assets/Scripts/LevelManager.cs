@@ -4,14 +4,54 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+
+    public static LevelManager Instance => instance;
+
+    private static LevelManager instance;
+
+    public List<FillableCube> fillableCubes = new List<FillableCube>();
+
+    public List<MoveableCube> moveableCubes = new List<MoveableCube>();
+
+
+    private int paintCounter;
+
+
+    public System.Action LevelComplated;
+
     [SerializeField]
     LevelInfoAsset levelInfoAsset;
-    public Transform TargetTransform;
+    [Space]
+    [SerializeField]
+    private Transform TargetTransform;
     Vector3 PixelPosition = Vector3.zero;
     public int PixelCount;
+
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         LoadLevel(1);
+        LevelComplated += DestroyAllMoveableCubes;
+    }
+    void DestroyAllMoveableCubes()
+    {
+        foreach (MoveableCube item in moveableCubes)
+        {
+            item.gameObject.SetActive(false);
+        }
+
     }
 
     private void LoadLevel(int index)
@@ -42,8 +82,26 @@ public class LevelManager : MonoBehaviour
         print(PixelCount);
     }
 
-    void Update()
+    public void OnFillableCubeCreated(FillableCube fillableCube)
+    {
+        fillableCubes.Add(fillableCube);
+        Debug.Log("Created FillableCubes  Count " + paintCounter);
+
+    }
+    public void OnMoveableCubeCreated(MoveableCube moveableCube)
+    {
+        moveableCubes.Add(moveableCube);
+        Debug.Log("Created moveableCube  Count " + paintCounter);
+    }
+    public void OnBlockPainted()
     {
 
+        paintCounter++;
+        Debug.Log("Created FillableCubes  Count " + paintCounter + " Count" + fillableCubes.Count);
+        if (fillableCubes.Count == paintCounter)
+        {
+            print("oyun bitti");
+            LevelComplated?.Invoke();
+        }
     }
 }
