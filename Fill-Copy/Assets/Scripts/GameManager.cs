@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        LevelManager.Instance.LevelComplated += OnLevelComplated;
+        LevelManager.Instance.LevelCompleted += OnLevelComplated;
     }
     void OnLevelComplated()
     {
