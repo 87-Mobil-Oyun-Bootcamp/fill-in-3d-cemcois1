@@ -21,12 +21,11 @@ public class CreateMoveableCube : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-    void Start()
-    {
+
         Create(255);
         LevelManager.Instance.LevelCompleted += Create;
     }
+
 
     public void Create(int pixelCount)
     {
@@ -51,14 +50,12 @@ public class CreateMoveableCube : MonoBehaviour
     {
 
 
-        for (int x = 0; x < 32  ; x++)
+        for (int x = 0; x < 32; x++)
         {
             for (int j = 0; j < 12; j++)
             {
 
                 Instantiate(moveableCube, transform.position + new Vector3(x * 3, 0, j * 3), Quaternion.identity, transform);
-                
-
             }
 
         }

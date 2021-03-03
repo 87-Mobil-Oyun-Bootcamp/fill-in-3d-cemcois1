@@ -21,15 +21,39 @@ MonoBehaviour:
     size: 3
     baseObject: {fileID: 709625794659840015, guid: 3935e119447d7834c855f0e7b817a401,
       type: 3}
+  - sprite: {fileID: 21300000, guid: a7e289b9ad4850b42aca72b388006566, type: 3}
+    size: 3
+    baseObject: {fileID: 709625794659840015, guid: 3935e119447d7834c855f0e7b817a401,
+      type: 3}
+  - sprite: {fileID: 21300000, guid: 09c60343f6b26a64487d289bffed552f, type: 3}
+    size: 3
+    baseObject: {fileID: 709625794659840015, guid: 3935e119447d7834c855f0e7b817a401,
+      type: 3}
+  - sprite: {fileID: 21300000, guid: f7142ad9ecb658b43b04b81ae48d7410, type: 3}
+    size: 3
+    baseObject: {fileID: 709625794659840015, guid: 3935e119447d7834c855f0e7b817a401,
+      type: 3}
+  - sprite: {fileID: 21300000, guid: 7a4033e7255c30741ac3dc3f450af77f, type: 3}
+    size: 3
+    baseObject: {fileID: 709625794659840015, guid: 3935e119447d7834c855f0e7b817a401,
+      type: 3}
+  - sprite: {fileID: 21300000, guid: bfcf847d011d6e946ae60f9830422e5b, type: 3}
+    size: 3
+    baseObject: {fileID: 709625794659840015, guid: 3935e119447d7834c855f0e7b817a401,
+      type: 3}
+  - sprite: {fileID: 21300000, guid: 803376a893db94a4bb9143276dc62c2a, type: 3}
+    size: 3
+    baseObject: {fileID: 709625794659840015, guid: 3935e119447d7834c855f0e7b817a401,
+      type: 3}
+  - sprite: {fileID: 21300000, guid: 09c60343f6b26a64487d289bffed552f, type: 3}
+    size: 3
+    baseObject: {fileID: 709625794659840015, guid: 3935e119447d7834c855f0e7b817a401,
+      type: 3}
+  - sprite: {fileID: 21300000, guid: f7142ad9ecb658b43b04b81ae48d7410, type: 3}
+    size: 3
+    baseObject: {fileID: 709625794659840015, guid: 3935e119447d7834c855f0e7b817a401,
+      type: 3}
   - sprite: {fileID: 21300000, guid: b0f6921961dbf7b4b84ff6e77f3aa05e, type: 3}
-    size: 3
-    baseObject: {fileID: 709625794659840015, guid: 3935e119447d7834c855f0e7b817a401,
-      type: 3}
-  - sprite: {fileID: 21300000, guid: f6802e0684045a94babd46ed1a3c7361, type: 3}
-    size: 3
-    baseObject: {fileID: 709625794659840015, guid: 3935e119447d7834c855f0e7b817a401,
-      type: 3}
-  - sprite: {fileID: 21300000, guid: f6802e0684045a94babd46ed1a3c7361, type: 3}
     size: 3
     baseObject: {fileID: 709625794659840015, guid: 3935e119447d7834c855f0e7b817a401,
       type: 3}
